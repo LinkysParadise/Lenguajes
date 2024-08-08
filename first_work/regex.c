@@ -53,7 +53,7 @@ void readConfiguration(char* filename) {
     trimNewline(line); 
     char* token = strtok(line, " ");
     while (token != NULL) {
-        printf("States: %s \n",token);
+
         strcpy(states[numStates++].state, token);
         token = strtok(NULL, " ");
     }
@@ -63,7 +63,7 @@ void readConfiguration(char* filename) {
     trimNewline(line); 
     token = strtok(line, " ");
     while (token != NULL) {
-        printf("Symbols: %c \n",token[0]);
+
         alphabet[numAlphabet++].symbol = token[0];
         token = strtok(NULL, " ");
     }
@@ -72,7 +72,7 @@ void readConfiguration(char* filename) {
     fgets(line, sizeof(line), file);
     trimNewline(line); 
     sscanf(line, "%s", initialState.state);
-    printf("Initial State: %s \n",initialState.state);
+
 
 
     // Read final states
@@ -80,11 +80,11 @@ void readConfiguration(char* filename) {
     trimNewline(line); 
     token = strtok(line, " ");
     while (token != NULL) {
-        printf("Final States: %s \n",token);
+
         strcpy(finalStates[numFinalStates++].state, token);
         token = strtok(NULL, " ");
     }
-    printf("Transicions \n");
+
 
 
     // Read transitions
@@ -92,23 +92,20 @@ void readConfiguration(char* filename) {
         trimNewline(line); 
         Transition t;
         sscanf(line, "%s %c %s", t.currentState.state, &t.symbol, t.nextState.state);
-        printf("Actual : %s, Symbol: %c, Next: %s \n",t.currentState.state, t.symbol, t.nextState.state);
         transitions[numTransitions++] = t;
     }
 
     fclose(file);
 }
 int isFinalState(State LastState) {
-    printf("LastState: %s\n", LastState.state);
+
     for (int i = 0; i < numFinalStates; i++) { 
-        printf("FinalState: %s\n", finalStates[i].state);
-        printf("%d \n", strcmp(finalStates[i].state, LastState.state));
+
         if (strcmp(finalStates[i].state, LastState.state) == 0) {
-            printf("Lo logré\n");
             return 1;
         }
     }
-    printf("Fracasé\n");
+
 
     return 0;
 }
@@ -120,7 +117,7 @@ State getNextState(State currentState, char symbol) {
         }
     }
     State emptyState;
-    printf("Devolveré un empty");
+
     strcpy(emptyState.state, ""); // Return an empty state if no transition is found
     return emptyState;
 }
@@ -128,10 +125,7 @@ State getNextState(State currentState, char symbol) {
 int isAccepted(char* word) {
     State currentState = initialState;
     for (int i = 0; i < strlen(word); i++) {
-        printf("CurrentState: %s \n", currentState.state);
-        printf("CurrentLetter: %c \n", word[i]);
         currentState = getNextState(currentState, word[i]);
-        printf("I'm going to: %s \n", currentState.state);
         if (strcmp(currentState.state, "") == 0) {
             return 0; // Transition not found
         }
