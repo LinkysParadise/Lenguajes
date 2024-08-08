@@ -1,5 +1,8 @@
 # Lenguajes de Programación
-Mateo Fonseca
-Santiago Garzón
-Karol Guerrero
-Sebastian Barros
+> Mateo Fonseca,
+
+> Santiago Garzón,
+
+> Karol Guerrero,
+
+> Sebastian Barros.
