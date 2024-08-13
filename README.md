@@ -39,7 +39,7 @@ This will generate an executable called `regex`.
   
 ### 2. **Run the program**:
 
- - In the terminal, inside the project folder, run the following command to start the program.
+In the terminal, inside the project folder, run the following command to start the program.
 
 ```sh
 ./regex rules.txt <word>
