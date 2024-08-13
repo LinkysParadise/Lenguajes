@@ -12,7 +12,7 @@ This will generate an executable called `regex`.
 
 ## Instructions for use.
 
-1. **Do a text file with the AFD definition**:
+### 1. **Do a text file with the AFD definition**:
 
   The text file must contain at least 5 lines:
 
@@ -37,7 +37,7 @@ This will generate an executable called `regex`.
   q2 b q1
   ```
   
-2. **Run the program**:
+### 2. **Run the program**:
 
  - In the terminal, inside the project folder, run the following command to start the program.
 
@@ -47,7 +47,7 @@ This will generate an executable called `regex`.
 
   **Note**: `rules.txt` is the name of the text file with AFD rules made in the first step. `<word>` corresponds to a String you want to analyze, for example `abbb` or `ababbab`. 
 
-3. **Interpret the Result**.
+### 3. **Interpret the Result**.
 
 The program will parse the input string according to the rules defined in the configuration file. Finally, it will tell you whether the string was accepted or rejected by the DFA.
 
